@@ -15,7 +15,7 @@ app.get("/", (req, res) =>{
 app.post("/generate", (req, res) =>{
   var link = req.body.link;
   var qr_svg = qr.image(link, { type: 'png' });
-  qr_svg.pipe(fs.createWriteStream("qr_image.png"));
+  qr_svg.pipe(fs.createWriteStream("qrimage.png"));
   //const qr_img = link+".png";
   console.log("created "+link+ " qr image");
   res.render("index.ejs");
