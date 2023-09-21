@@ -2,6 +2,7 @@
 import express from "express";
 import qr from "qr-image";
 import bodyparser from "body-parser";
+import fs from "fs";
 
 const app = express();
 
@@ -13,7 +14,10 @@ app.get("/", (req, res) =>{
 
 app.post("/generate", (req, res) =>{
   var link = req.body.link;
-  console.log(link);
+  var qr_svg = qr.image(link, { type: 'png' });
+  qr_svg.pipe(fs.createWriteStream("qr_image.png"));
+  //const qr_img = link+".png";
+  res.render("index.ejs");
 });
 
 app.listen(3000, ()=>{
