@@ -12,13 +12,13 @@ app.get("/", (req, res) =>{
   res.render("index.ejs");
 });
 
-app.post("/generate", (req, res) =>{
+app.post("/scan", (req, res) =>{
   var link = req.body.link;
   var qr_svg = qr.image(link, { type: 'png' });
   qr_svg.pipe(fs.createWriteStream("qrimage.png"));
   //const qr_img = link+".png";
   console.log("created "+link+ " qr image");
-  res.render("index.ejs");
+  res.render("scan.ejs");
 });
 
 app.listen(3000, ()=>{

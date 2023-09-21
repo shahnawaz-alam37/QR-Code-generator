@@ -23,8 +23,8 @@
     
     <div class="container-fluid main">
     <h1>QR Code Generator</h1>
-    <form action="/generate" method="POST">
-      <input type="text" placeholder="enter any link" name="link" required><br>
+    <form action="/scan" method="POST">
+      <input type="text" placeholder="enter any link" name="url" required><br>
       <input type="submit" name="Generate" onclick="createimg()">
     </form>
     <div id="img"></div>
