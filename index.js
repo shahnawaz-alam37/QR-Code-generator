@@ -17,7 +17,7 @@ app.post("/generate", (req, res) =>{
   var qr_svg = qr.image(link, { type: 'png' });
   qr_svg.pipe(fs.createWriteStream("qr_image.png"));
   //const qr_img = link+".png";
-  res.render("index.ejs");
+  res.redirect("index.ejs");
 });
 
 app.listen(3000, ()=>{
